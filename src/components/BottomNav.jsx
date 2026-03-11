@@ -15,23 +15,41 @@ export default function BottomNav({ onAddPress }) {
                         onClick={() => navigate("/")}
                         className="flex flex-col items-center"
                     >
-                        <span className="text-xl">⌂</span>
-                        <span className="text-[11px] text-gray-400 mt-1">Home</span>
-                    </button>
-                </div>
-
-                {/* ESPACIO FAB */}
-                <div className="w-[80px]" />
-
-                {/* PERFIL */}
-                <div className="flex-1 flex justify-center">
-                    <button className="flex flex-col items-center">
-                        <span className="text-[11px] text-gray-400 mt-1">Perfil</span>
+                        <img
+                            src="/home.png"
+                            alt="Home"
+                            className="w-8 h-8 object-contain"
+                        />
+                        <span className="text-gray-400 mt-1">Home</span>
                     </button>
                 </div>
 
                 {/* FAB */}
-                <button
+                <div className="w-[80px] flex justify-center items-center">
+                    <button className="w-[75px] h-[75px] -mt-8 rounded-full bg-blue-500 flex items-center justify-center text-4xl shadow-2xl shadow-gray-950"
+                        onClick={onAddPress}>
+                        <img
+                            src="/more.png"
+                            alt="More"
+                            
+                        />
+                    </button>
+                </div>
+
+                {/* PERFIL */}
+                <div className="flex-1 flex justify-center">
+                    <button className="flex flex-col items-center">
+                        <img
+                            src="/profile.jpeg"
+                            alt="Perfil"
+                            className="w-8 h-8 rounded-full object-cover"
+                        />
+                        <span className="text-gray-400 mt-1">Perfil</span>
+                    </button>
+                </div>
+
+                {/* FAB */}
+                {/* <button
                     onClick={onAddPress}
                     className="
           absolute
@@ -50,7 +68,7 @@ export default function BottomNav({ onAddPress }) {
           "
                 >
                     +
-                </button>
+                </button> */}
 
             </div>
         </div>

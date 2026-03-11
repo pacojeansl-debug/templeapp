@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BottomNav from "../components/BottomNav";
 
 const TABS = ["Pendiente", "En proceso", "Terminado"];
 
@@ -67,11 +68,10 @@ export default function Reports() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-1 py-2 rounded-full text-sm ${
-              activeTab === tab
-                ? "bg-blue-500 text-white"
-                : "bg-gray-800 text-gray-400"
-            }`}
+            className={`flex-1 py-2 rounded-full text-sm ${activeTab === tab
+              ? "bg-blue-500 text-white"
+              : "bg-gray-800 text-gray-400"
+              }`}
           >
             {tab}
           </button>
@@ -118,11 +118,10 @@ export default function Reports() {
               <button
                 key={a}
                 onClick={() => setAreaFilter(a)}
-                className={`block w-full text-left px-3 py-2 rounded mb-2 ${
-                  areaFilter === a
-                    ? "bg-blue-500"
-                    : "bg-gray-700"
-                }`}
+                className={`block w-full text-left px-3 py-2 rounded mb-2 ${areaFilter === a
+                  ? "bg-blue-500"
+                  : "bg-gray-700"
+                  }`}
               >
                 {a === "all" ? "Todas" : a}
               </button>
@@ -137,11 +136,10 @@ export default function Reports() {
               <button
                 key={f.key}
                 onClick={() => setDateFilter(f.key)}
-                className={`block w-full text-left px-3 py-2 rounded mb-2 ${
-                  dateFilter === f.key
-                    ? "bg-blue-500"
-                    : "bg-gray-700"
-                }`}
+                className={`block w-full text-left px-3 py-2 rounded mb-2 ${dateFilter === f.key
+                  ? "bg-blue-500"
+                  : "bg-gray-700"
+                  }`}
               >
                 {f.label}
               </button>
@@ -208,8 +206,12 @@ export default function Reports() {
 
           </div>
 
+
+
         </div>
       )}
+
+      
     </div>
   );
 }
