@@ -169,49 +169,131 @@ export default function Reports() {
       )}
 
       {/* REPORT MODAL */}
+      {/* REPORT MODAL */}
       {selectedReport && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-6">
+        <div className="fixed inset-0 bg-black/40 flex justify-center items-center p-6">
 
           <div className="bg-gray-900 rounded-xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto">
 
-            <h2 className="text-xl font-bold mb-3">
+            {/* TITLE */}
+            <h2 className="text-xl font-bold mb-4 uppercase">
               {selectedReport.title}
             </h2>
 
+            {/* DESCRIPCION */}
             <p className="text-gray-400 text-sm">Descripción</p>
-            <p className="mb-3">
+            <p className="mb-4">
               Switch as0701-tpl-mexic se encuentra fuera de linea
             </p>
 
+            {/* AREA */}
             <p className="text-gray-400 text-sm">Área</p>
-            <p className="mb-3">{selectedReport.area}</p>
+            <p className="mb-4">{selectedReport.area}</p>
 
+            {/* TECNICO */}
             <p className="text-gray-400 text-sm">Técnico asignado</p>
-            <p className="mb-3">Francisco Vazquez</p>
+            <p className="mb-4">Francisco Vazquez</p>
 
+            {/* PRIORIDAD */}
             <p className="text-gray-400 text-sm">Prioridad</p>
             <p className="mb-4">Baja</p>
 
+            {/* FOTO REPORTE */}
+            <p className="text-gray-400 text-sm mb-2">Fotos del reporte</p>
+
             <img
               src="/reptemple.jpeg"
-              className="rounded-lg mb-4"
+              className="rounded-lg mb-6 w-full h-[150px] object-contain"
             />
 
+            {/* TIMELINE */}
+            <p className="text-gray-400 text-sm mb-3">Línea de tiempo</p>
+
+            <TimelineItem
+              label="Creación"
+              date="19/02/2026 4:48PM"
+            />
+
+            <TimelineItem
+              label="Asignación"
+              date="20/02/2026 6:30AM"
+              duration="13h 42m"
+            />
+
+            <TimelineItem
+              label="Atención"
+              date="20/02/2026 3:30PM"
+              duration="9h"
+            />
+
+            <TimelineItem
+              label="Término"
+              date="20/02/2026 3:51PM"
+              duration="21m"
+            />
+
+            {/* FOTO FINAL */}
+            <p className="text-gray-400 text-sm mt-6 mb-2">
+              Foto posterior
+            </p>
+
+            <img
+              src="/reptemple1.jpeg"
+              className="rounded-lg w-full h-[150px] object-contain"
+            />
+
+            {/* REINCIDENCIAS */}
+            <p className="text-gray-400 text-sm mt-6 mb-3">
+              Reincidencias
+            </p>
+
+            <div className="bg-gray-800 rounded-xl p-2 flex items-center gap-3">
+
+              <img
+                src="/reincidencia.png"
+                className="w-5 h-5 object-contain opacity-80"
+              />
+
+              <p className="text-gray-400 text-sm">
+                No cuenta con reincidencias
+              </p>
+
+            </div>
+
+            {/* BOTON */}
             <button
               onClick={() => setSelectedReport(null)}
-              className="w-full bg-blue-500 py-3 rounded-lg"
+              className="w-full bg-blue-500 py-3 rounded-lg mt-6"
             >
               Cerrar
             </button>
 
           </div>
-
-
-
         </div>
       )}
 
-      
+
     </div>
   );
+
+  function TimelineItem({ label, date, duration }) {
+    return (
+      <div className="flex items-start gap-3 mb-4">
+
+        <div className="w-3 h-3 bg-blue-500 rounded-full mt-2"></div>
+
+        <div>
+          <p className="font-semibold">{label}</p>
+          <p className="text-gray-400 text-xs">{date}</p>
+
+          {duration && (
+            <p className="text-blue-400 text-xs mt-1">
+              + {duration}
+            </p>
+          )}
+        </div>
+
+      </div>
+    );
+  }
 }
