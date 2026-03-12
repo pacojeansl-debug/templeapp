@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import ActionModal from "./ActionModal";
 
 export default function BottomNav({ onAddPress }) {
     const navigate = useNavigate();
+
+    const [showModal, setShowModal] = useState(false);
 
     return (
         <div className="fixed bottom-0 w-full flex justify-center z-50">
@@ -27,11 +31,11 @@ export default function BottomNav({ onAddPress }) {
                 {/* FAB */}
                 <div className="w-[80px] flex justify-center items-center">
                     <button className="w-[75px] h-[75px] -mt-8 rounded-full bg-blue-500 flex items-center justify-center text-4xl shadow-2xl shadow-gray-950"
-                        onClick={onAddPress}>
+                        onClick={() => setShowModal(true)}>
                         <img
                             src="/more.png"
                             alt="More"
-                            
+
                         />
                     </button>
                 </div>
@@ -71,6 +75,12 @@ export default function BottomNav({ onAddPress }) {
                 </button> */}
 
             </div>
+
+            <ActionModal
+                visible={showModal}
+                onClose={() => setShowModal(false)}
+            />
         </div>
+
     );
 }
